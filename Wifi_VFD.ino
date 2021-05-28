@@ -2,7 +2,7 @@
  * @Author       : Chr_
  * @Date         : 2021-04-25 22:57:45
  * @LastEditors  : Chr_
- * @LastEditTime : 2021-05-18 16:43:39
+ * @LastEditTime : 2021-05-28 20:20:05
  * @Description  : WiFi VFD
  */
 
@@ -11,7 +11,6 @@
 #include <NTPClient.h>
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
-#include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <FS.h>
 
