@@ -2,7 +2,7 @@
  * @Author       : Chr_
  * @Date         : 2021-04-25 22:57:45
  * @LastEditors  : Chr_
- * @LastEditTime : 2021-05-28 20:20:05
+ * @LastEditTime : 2021-06-05 17:50:17
  * @Description  : WiFi VFD
  */
 
@@ -333,8 +333,10 @@ void init_save_cfg(char *file_name)
 void init_network()
 {
     String ipaddr = "";
+    G_ap_ssid += ESP.getChipId();
 
     WiFi.mode(WIFI_STA);
+    WiFi.hostname(G_ap_ssid.c_str());
 
     if (connect_wifi(G_wifi_ssid, G_wifi_passwd))
     {
@@ -768,7 +770,7 @@ void handle_screen_group()
     if (!web_verify())
         return;
 
-    G_screen_disp = web_serv.arg("w").substring(0,300);
+    G_screen_disp = web_serv.arg("w").substring(0, 300);
 
     switch_mode(MODE_TEXT);
 
@@ -877,7 +879,7 @@ void handle_process_string()
     if (!web_verify())
         return;
 
-    G_screen_disp = web_serv.arg("w").substring(0,300);
+    G_screen_disp = web_serv.arg("w").substring(0, 300);
 
     switch_mode(MODE_PROC);
 

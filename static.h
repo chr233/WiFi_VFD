@@ -2,7 +2,7 @@
  * @Author       : Chr_
  * @Date         : 2021-04-28 12:46:43
  * @LastEditors  : Chr_
- * @LastEditTime : 2021-05-17 21:34:56
+ * @LastEditTime : 2021-06-05 17:48:34
  * @Description  : 静态常量
  */
 
@@ -11,7 +11,7 @@
 
 const char WEEKNAME[7][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
 
-#define VERSION "2.0.0" // 版本号
+#define VERSION "2.1.0" // 版本号
 
 #define NTPSERV "ntp2.aliyun.com" // NTP服务器
 
@@ -20,7 +20,7 @@ const char WEEKNAME[7][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
 #define DEF_WIFI_SSID "TEST WIFI"
 #define DEF_WIFI_PASSWD "FFFFFFFF"
 #define DEF_CONN_PASSWD "CHR233"
-#define DEF_AP_SSID "WIFI_VFD_AP"
+#define DEF_AP_SSID "WIFI_VFD_"
 #define DEF_AP_PASSWD "CHRXWCHRXW"
 
 #define AUTH_PATH "/auth"
