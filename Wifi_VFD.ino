@@ -2,7 +2,7 @@
  * @Author       : Chr_
  * @Date         : 2021-04-25 22:57:45
  * @LastEditors  : Chr_
- * @LastEditTime : 2021-06-05 17:50:17
+ * @LastEditTime : 2021-12-15 14:52:58
  * @Description  : WiFi VFD
  */
 
@@ -952,26 +952,33 @@ void mode_time_display(int reset)
     str += s / 10;
     str += s % 10;
 
-    VFD_display_string(0, str);
-    if (dot)
+    if (h < 6)
     {
-        VFD_display_logo(LOGO_COLON_RIGHT1, (G_screen_icon & (1 << LOGO_COLON_RIGHT1))
-                                                ? CTRL_LOGO_COLON_ON
-                                                : CTRL_COLON_ON);
-        VFD_display_logo(LOGO_COLON_RIGHT2, (G_screen_icon & (1 << LOGO_COLON_RIGHT2))
-                                                ? CTRL_LOGO_COLON_ON
-                                                : CTRL_COLON_ON);
+        VFD_all_off();
     }
     else
     {
-        VFD_display_logo(LOGO_COLON_RIGHT1, (G_screen_icon & (1 << LOGO_COLON_RIGHT1))
-                                                ? CTRL_LOGO_ON
-                                                : CTRL_LOGO_OFF);
-        VFD_display_logo(LOGO_COLON_RIGHT2, (G_screen_icon & (1 << LOGO_COLON_RIGHT2))
-                                                ? CTRL_LOGO_ON
-                                                : CTRL_LOGO_OFF);
+        VFD_display_string(0, str);
+        if (dot)
+        {
+            VFD_display_logo(LOGO_COLON_RIGHT1, (G_screen_icon & (1 << LOGO_COLON_RIGHT1))
+                                                    ? CTRL_LOGO_COLON_ON
+                                                    : CTRL_COLON_ON);
+            VFD_display_logo(LOGO_COLON_RIGHT2, (G_screen_icon & (1 << LOGO_COLON_RIGHT2))
+                                                    ? CTRL_LOGO_COLON_ON
+                                                    : CTRL_COLON_ON);
+        }
+        else
+        {
+            VFD_display_logo(LOGO_COLON_RIGHT1, (G_screen_icon & (1 << LOGO_COLON_RIGHT1))
+                                                    ? CTRL_LOGO_ON
+                                                    : CTRL_LOGO_OFF);
+            VFD_display_logo(LOGO_COLON_RIGHT2, (G_screen_icon & (1 << LOGO_COLON_RIGHT2))
+                                                    ? CTRL_LOGO_ON
+                                                    : CTRL_LOGO_OFF);
+        }
+        dot = !dot;
     }
-    dot = !dot;
 }
 
 // 滚动文本
