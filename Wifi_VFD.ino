@@ -2,7 +2,7 @@
  * @Author       : Chr_
  * @Date         : 2021-04-25 22:57:45
  * @LastEditors  : Chr_
- * @LastEditTime : 2021-12-15 14:52:58
+ * @LastEditTime : 2021-12-15 14:59:46
  * @Description  : WiFi VFD
  */
 
@@ -943,10 +943,14 @@ void mode_time_display(int reset)
 
     if (!h24 && h > 12)
     {
-        h -= 12;
+        str += (h-12) / 10;
+        str += (h-12) % 10;
     }
-    str += h / 10;
-    str += h % 10;
+    else
+    {
+        str += h / 10;
+        str += h % 10;
+    }
     str += m / 10;
     str += m % 10;
     str += s / 10;
